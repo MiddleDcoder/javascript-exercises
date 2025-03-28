@@ -1,13 +1,13 @@
-const removeFromArray = function(arrayValue, ...removeNum) {
-    // Slice the array into two parts: before and after the element to remove
-    const before = arrayValue.slice(0, removeNum - 1);   // Elements before the target
-    const after = arrayValue.slice(removeNum);           // Elements after the target
+const removeFromArray = function(arrayValue, ...removeArgs) {
+    const result = [];
     
-    // Combine the two parts into a new array
-    const newArray = [...before, ...after];
-
-    return newArray;
+    for (const item of arrayValue) {
+        if (!removeArgs.includes(item)) {
+            result.push(item);
+        }
+    }
     
+    return result;
 };
 
 // Do not edit below this line
